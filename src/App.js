@@ -5,10 +5,11 @@ import './app.scss';
 const App = () => {
   return (
     <div>
+      <div className="top-line"></div>
       <Particles
         className="particles"
         params={particlesConfig} />
-      burtu juceklis
+      <h1 className="title">Burtu Juceklis</h1>
     </div>
   );
 }

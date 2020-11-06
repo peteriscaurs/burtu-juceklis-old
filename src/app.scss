@@ -1,3 +1,15 @@
+.top-line {
+    height: 5px;
+    background-image: linear-gradient(
+        115deg,
+        rgb(62, 94, 54), 
+        rgb(204, 227, 198), 
+        rgb(146, 223, 126),
+        rgb(85, 94, 82),
+        rgb(112, 171, 97)
+    );
+}
+
 .particles {
     position: fixed;
     top: 0;
