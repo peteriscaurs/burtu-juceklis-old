@@ -1,20 +1,41 @@
+body {
+  background: rgb(21, 21, 21) center center fixed no-repeat;
+  background: -webkit-radial-gradient(center, rgb(21, 21, 21), rgb(16, 16, 16))
+    center center fixed no-repeat;
+  background: -moz-radial-gradient(center, rgb(21, 21, 21), rgb(16, 16, 16))
+    center center fixed no-repeat;
+  background: radial-gradient(
+      ellipse at center,
+      rgb(21, 21, 21),
+      rgb(16, 16, 16)
+    )
+    center center fixed no-repeat;
+  color: rgb(255, 255, 255);
+}
+
 .top-line {
-    height: 5px;
-    background-image: linear-gradient(
-        115deg,
-        rgb(62, 94, 54), 
-        rgb(204, 227, 198), 
-        rgb(146, 223, 126),
-        rgb(85, 94, 82),
-        rgb(112, 171, 97)
-    );
+  height: 5px;
+  background-image: linear-gradient(
+    115deg,
+    rgb(62, 94, 54),
+    rgb(204, 227, 198),
+    rgb(146, 223, 126),
+    rgb(85, 94, 82),
+    rgb(112, 171, 97)
+  );
 }
 
 .particles {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.title {
+  font-family: "Leckerli One", cursive;
+  text-align: center;
+  margin: 0.5em 0;
 }

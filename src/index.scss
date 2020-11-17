@@ -1,12 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap');
 
 body {
-  background-color: #222;
-  color: white;
-}
-
-.title {
-  font-family: 'Leckerli One', cursive;
-  text-align: center;
-  margin: 1em 0;
+  background: rgb(21, 21, 21) center center fixed no-repeat;
+  background: -webkit-radial-gradient(center, rgb(21, 21, 21), rgb(16, 16, 16)) center center fixed no-repeat;
+  background: -moz-radial-gradient(center, rgb(21, 21, 21), rgb(16, 16, 16)) center center fixed no-repeat;
+  background: radial-gradient(ellipse at center, rgb(21, 21, 21), rgb(16, 16, 16)) center center fixed no-repeat;
+  color: rgb(255, 255, 255);
 }
