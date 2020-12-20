@@ -15,6 +15,7 @@ import Footer from "./components/Footer";
 import endpoints from "./endpoints";
 import ScrabbleWordFinder from "./utilities/scrabbleWordFinder";
 import useLocalStorage from "./components/useLocalStorage";
+import About from "./components/About";
 import _ from "lodash";
 
 const App = () => {
@@ -38,14 +39,15 @@ const App = () => {
     return data;
   };
 
-  const saveWord = (word) => {
+  const handleSaveButtonClick = (word) => {
     const savedWordsCopy = [].concat(savedWords);
     const newSavedWords = savedWordsCopy.concat(word);
     setSavedWords(newSavedWords);
     return savedWords;
   };
 
-  const removeWord = (word) => {
+  const handleDeleteButtonClick = (event, word) => {
+    event.stopPropagation();
     const savedWordsCopy = [].concat(savedWords);
     const newSavedWords = _.remove(
       savedWordsCopy,
@@ -67,16 +69,19 @@ const App = () => {
         <Route exact path="/">
           <Redirect to="/par" />
         </Route>
-        <Route path="/par"></Route>
+        <Route path="/par"><About /></Route>
         <Route path="/meklet">
           <SearchWords
             wordFinder={scrabbleWordFinder}
-            saveWord={saveWord}
+            handleSaveButtonClick={handleSaveButtonClick}
             savedWords={savedWords}
           />
         </Route>
         <Route path="/saglabatie">
-          <SavedWords savedWords={savedWords} removeWord={removeWord} />
+          <SavedWords
+            savedWords={savedWords}
+            handleDeleteButtonClick={handleDeleteButtonClick}
+          />
         </Route>
       </Switch>
       <Footer />

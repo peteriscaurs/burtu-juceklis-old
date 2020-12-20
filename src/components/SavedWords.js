@@ -2,18 +2,13 @@ import { useState } from "react";
 import Table from "./Table";
 import WordMeaningModal from "./WordMeaningModal";
 
-function SavedWords({ savedWords, removeWord }) {
+function SavedWords({ savedWords, handleDeleteButtonClick }) {
   const [shouldShowModal, setShouldShowModal] = useState(false);
   const [selectedWord, setSelectedWord] = useState("");
 
   const handleRowClick = (word) => {
-    setSelectedWord(word.letters);
+    setSelectedWord(word);
     setShouldShowModal(true);
-  };
-
-  const handleDeleteButtonClick = (event, word) => {
-    event.stopPropagation();
-    removeWord(word);
   };
 
   return (
@@ -34,7 +29,12 @@ function SavedWords({ savedWords, removeWord }) {
         }))}
       />
       {shouldShowModal && (
-        <WordMeaningModal toggle={setShouldShowModal} word={selectedWord} />
+        <WordMeaningModal
+          toggle={setShouldShowModal}
+          word={selectedWord}
+          selectedWord={selectedWord}
+          savedWords={savedWords}
+        />
       )}
     </div>
   );

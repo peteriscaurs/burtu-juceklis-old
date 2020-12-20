@@ -3,14 +3,14 @@ import Table from "./Table";
 import WordMeaningModal from "./WordMeaningModal";
 import SearchWordsInput from "./SearchWordsInput";
 
-function SearchWords({ wordFinder, saveWord, savedWords }) {
-  const [input, setInput] = useState("");
+function SearchWords({ wordFinder, handleSaveButtonClick, savedWords }) {
+  const [searchInput, setSearchInput] = useState("");
   const [tableRows, setTableRows] = useState(null);
   const [shouldShowModal, setShouldShowModal] = useState(false);
-  const [selectedWord, setSelectedWord] = useState("");
+  const [selectedWord, setSelectedWord] = useState({});
 
   useEffect(() => {
-    handleTableRowsChange(input);
+    handleTableRowsChange(searchInput);
   }, [savedWords]);
 
   const isSaved = (letters) => {
@@ -23,12 +23,11 @@ function SearchWords({ wordFinder, saveWord, savedWords }) {
     <i
       className={`fa fa-star fa-lg`}
       style={{ color: `${isSaved(word.letters)}` }}
-      onClick={() => saveWord(word)}
     ></i>
   );
 
   const handleRowClick = (word) => {
-    setSelectedWord(word.letters);
+    setSelectedWord(word);
     setShouldShowModal(true);
   };
 
@@ -47,12 +46,12 @@ function SearchWords({ wordFinder, saveWord, savedWords }) {
   };
 
   const onInputchange = (e) => {
-    setInput(e.target.value);
+    setSearchInput(e.target.value);
   };
 
   const handleSearchInputOnKeyDown = (event) => {
     if (event.key === "Enter") {
-      handleTableRowsChange(input);
+      handleTableRowsChange(searchInput);
     }
   };
 
@@ -63,11 +62,16 @@ function SearchWords({ wordFinder, saveWord, savedWords }) {
           onInputchange={onInputchange}
           handleSearchInputOnKeyDown={handleSearchInputOnKeyDown}
           handleTableRowsChange={handleTableRowsChange}
-          input={input}
+          searchInput={searchInput}
         />
-        {tableRows !== null && <Table rows={tableRows} />}
+        <Table rows={tableRows} />
         {shouldShowModal && (
-          <WordMeaningModal toggle={setShouldShowModal} word={selectedWord} />
+          <WordMeaningModal
+            toggle={setShouldShowModal}
+            selectedWord={selectedWord}
+            handleSaveButtonClick={handleSaveButtonClick}
+            savedWords={savedWords}
+          />
         )}
       </div>
     );

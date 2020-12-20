@@ -2,7 +2,7 @@ function SearchWordsInput({
   onInputchange,
   handleSearchInputOnKeyDown,
   handleTableRowsChange,
-  input,
+  searchInput,
 }) {
   return (
     <div
@@ -25,7 +25,7 @@ function SearchWordsInput({
       <button
         type="button"
         className="btn btn-primary btn-md"
-        onClick={() => handleTableRowsChange(input)}
+        onClick={() => handleTableRowsChange(searchInput)}
       >
         <i className="fa fa-search fa-lg"></i>
       </button>

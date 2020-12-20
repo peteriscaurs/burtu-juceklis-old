@@ -46,7 +46,7 @@ export default function Table({ rows, savedWords }) {
         paginationLabel={["Iepriekšējā", "Nākamā"]}
         data={{
           columns,
-          rows: rows.sort((a, b) => b.value - a.value),
+          rows: rows ? rows.sort((a, b) => b.value - a.value) : [],
         }}
         hover
         {...conditionalProps}
