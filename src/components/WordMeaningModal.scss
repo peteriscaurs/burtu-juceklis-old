@@ -1,0 +1,24 @@
+.doc {
+  color: #212529;
+  text-align: left;
+  .sv_Entry {
+    & > * {
+      margin: 10px;
+    }
+    .sv_Head {
+      // display: none;
+      font-size: 1.5rem;
+      font-weight: 300;
+      .sv_VR {
+        text-transform: capitalize;
+      }
+    }
+    .sv_Sense {
+      .sv_NS {
+      }
+    }
+    .sv_LI {
+      display: none;
+    }
+  }
+}

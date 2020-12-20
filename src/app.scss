@@ -1,3 +1,7 @@
+*::selection {
+  background: rgb(146, 223, 126);
+}
+
 body {
   background: rgb(21, 21, 21) center center fixed no-repeat;
   background: -webkit-radial-gradient(center, rgb(21, 21, 21), rgb(16, 16, 16))
@@ -38,4 +42,13 @@ body {
   font-family: "Leckerli One", cursive;
   text-align: center;
   margin: 0.5em 0;
+}
+
+.fa {
+  cursor: pointer;
+}
+
+input[type="text"]:focus {
+  box-shadow: none;
+  border: 1px solid #dddddd;
 }
